@@ -34,6 +34,8 @@ class FCurveAnimatable:
 
             currentAction = object.animation_data.action
             for action in bpy.data.actions:
+                if action != currentAction:
+                    continue
                 # get the range / assigning the action to the object
                 animationRange = AnimationRange.actionPrep(object, action, False, frameOffset)
                 if animationRange is None:
